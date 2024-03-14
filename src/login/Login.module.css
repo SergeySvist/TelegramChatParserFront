@@ -1,5 +1,6 @@
 .auth {
     text-align: center;
+    height: 100%;
 }
 .loginByQrH1{
     margin: 1.5rem 0 1rem 0;
@@ -74,6 +75,36 @@
     background-color: rgba(135,116,225, 5%);
 
 }
+.nextButton{
+    outline: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3.5rem;
+    border: 0;
+    border-radius: 0.75rem;
+    background-color: rgb(135,116,225);
+    background-size: cover;
+    padding: 0.625rem;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    transition: background-color .15s, color .15s;
+    text-decoration: none !important;
+    --premium-gradient: linear-gradient(88.39deg, #6C93FF -2.56%, #976FFF 51.27%, #DF69D1 107.39%);
+}
+
+.nextButton:hover{
+    background-color: rgba(135,116,225, 90%);
+
+}
+
 .animatedSticker{
     position: absolute;
     top: 50%;
@@ -96,6 +127,9 @@
 }
 .note{
     margin: 0px 0px 48px 0px;
+    color: rgb(170,170,170);
+    font-size: 1rem;
+    line-height: 1.35;
 }
 .dropdownMenu{
     position: relative;
@@ -121,7 +155,14 @@
     font-size: 1rem;
     line-height: 1.25rem;
 }
-.inputgroup label{
+.formInput:focus{
+    border: 2px solid rgb(135,116,225);
+    border-radius: 0.75rem;
+}
+.formInput:focus + .inputLabel{
+    color: rgb(135,116,225);
+}
+.inputLabel{
     display: block;
     padding: 0 0.25rem;
     position: absolute;
@@ -149,6 +190,11 @@
     border-left: 0;
     transform: scaleY(1) rotate(45deg);
     transition: color .2s ease, transform .2s ease, top .2s ease;
+}
+.open{
+    border-color: rgb(135,116,225);
+    transform: scaleY(-1) rotate(45deg);
+    top: 1.5rem;
 }
 .checkbox{
     display: block;
@@ -211,4 +257,71 @@
 }
 .form {
     min-height: 26.25rem;
+}
+.monkey{
+
+    background: url('./resources/monkey.png') center no-repeat;
+    background-size: 100%;
+    width: 160px;
+    height: 160px;
+    margin: 0px 100px 40px 100px;
+
+}
+.codeH1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 8px 0px;
+}
+.authNumberEditButton{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgb(128,128,128);
+}
+.authNumberEditButton:hover{
+    color: rgb(177, 176, 176);
+
+}
+.codeLabel{
+    display: block;
+    padding: 0 0.25rem;
+    position: absolute;
+    left: 0.75rem;
+    top: 0.9375rem;
+    background-color: rgb(33,33,33);
+    font-size: 1rem;
+    font-weight: 400;
+    color: #a2acb4;
+    transition: transform .15s ease-out, color .15s ease-out;
+    cursor: text;
+    pointer-events: none;
+    transform-origin: left center;
+    white-space: nowrap;
+}
+.formInput:focus + .codeLabel{
+    left: 0.5rem;
+    top: -10px;
+    font-size: 12px;
+    transition: transform .15s ease-out, color .15s ease-out;
+    color: rgb(135,116,225);
+
+}
+
+.formInput:hover + .codeLabel{
+    color: rgb(135,116,225);
+}
+.formInput:hover{
+    border: 1px solid rgb(135,116,225);
+    border-radius: 0.75rem;
+}
+
+.formInput:hover + .inputLabel{
+    color:  rgb(135,116,225);
+}
+a{
+    text-decoration: none;
 }
