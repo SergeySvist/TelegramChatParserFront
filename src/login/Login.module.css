@@ -155,6 +155,16 @@
     font-size: 1rem;
     line-height: 1.25rem;
 }
+
+.formInput:hover{
+    border: 1px solid rgb(135,116,225);
+    border-radius: 0.75rem;
+}
+
+.formInput:hover + .inputLabel{
+    color:  rgb(135,116,225);
+}
+
 .formInput:focus{
     border: 2px solid rgb(135,116,225);
     border-radius: 0.75rem;
@@ -302,6 +312,9 @@
     transform-origin: left center;
     white-space: nowrap;
 }
+.formInput:hover + .codeLabel{
+    color: rgb(135,116,225);
+}
 .formInput:focus + .codeLabel{
     left: 0.5rem;
     top: -10px;
@@ -311,17 +324,6 @@
 
 }
 
-.formInput:hover + .codeLabel{
-    color: rgb(135,116,225);
-}
-.formInput:hover{
-    border: 1px solid rgb(135,116,225);
-    border-radius: 0.75rem;
-}
-
-.formInput:hover + .inputLabel{
-    color:  rgb(135,116,225);
-}
 a{
     text-decoration: none;
 }
