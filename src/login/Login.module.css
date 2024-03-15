@@ -321,6 +321,7 @@
     font-size: 12px;
     transition: transform .15s ease-out, color .15s ease-out;
     color: rgb(135,116,225);
+    transform-origin: left center;
 
 }
 

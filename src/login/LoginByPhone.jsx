@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
+import { baseURL } from '../config';
+import axios from 'axios';
 
 function LoginByPhone() {
     const [open, setOpen] = useState(false);
     const [count, setCount] = useState(0);
+    const [phone, setPhone] = useState("");
+
+    const phoneLogin = async ()=>{
+        const resp = await axios.post(baseURL, {formtype: "phonelogin", phone: phone});
+    }
 
   return (
     <div className={styles.auth} style={{padding: "45px 0px 0px 0px"}}>
@@ -20,7 +27,7 @@ function LoginByPhone() {
         </div>
         <div className={styles.form}>
             <div className={styles.inputgroup}>
-                    <input className={styles.formInput} type="text" id="sign-in-phone-number" dir='auto' inputMode='tel' autoComplete="off" onChange={(e) => setCount(e.target.value.length)}/>
+                    <input className={styles.formInput} type="text" id="sign-in-phone-number" dir='auto' inputMode='tel' autoComplete="off" onChange={(e) => {setCount(e.target.value.length); setPhone(e.target.value);}}/>
                     <label className={styles.inputLabel}>Your phone number</label>      
             </div>
             <label className={styles.checkbox}>
@@ -30,7 +37,7 @@ function LoginByPhone() {
                 </div>
             </label>
             <div style={{marginTop: "44px"}}>
-                {count>5 ? <Link to="/codelogin"><button type="submit" className={styles.nextButton}>Next</button></Link>:""}
+                {count>5 ? <Link to="/codelogin"><button type="submit" className={styles.nextButton} onClick={()=>phoneLogin()}>Next</button></Link>:""}
                 <Link to="/">
                     <button type="button" className={styles.anotherLoginButton} style={{marginTop: "16px"}}>Log in by QR Code</button>
                 </Link>

