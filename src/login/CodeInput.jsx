@@ -1,15 +1,29 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import { useState } from 'react';
 import { baseURL } from '../config';
 import axios from 'axios';
 
 function CodeInput() {
+  const [error, setError] = useState("");
+  const [code, setCode] = useState("");
+  const navigate = useNavigate();
+
+
   const codeLogin = async (code)=>{
-    const resp = await axios.post(baseURL, {formtype: "codelogin", code: code});
+    axios.post(baseURL, {formtype: "codelogin", code: code})
+      .then((response)=>{
+      })
+      .catch((serverError) =>{
+          if(serverError.response)
+              if(serverError.response.status === 400)
+                  setError("Invalid code.");
+      });
+    navigate("/error");
   }
   const codeLoginStart = (code) => {
-    if(code.length == 5) codeLogin(code);
+    setCode(code);
+    if(code.length === 5) codeLogin(code);
   }
 
   return (
@@ -33,7 +47,7 @@ function CodeInput() {
               codeLoginStart(e.target.value)
             }}
               />
-          <label for="sign-in-code" className={styles.codeLabel}>Code</label>
+          <label for="sign-in-code" className={code.length > 0 ? `${styles.codeLabel} ${styles.codeLabelWhenText}` : `${styles.codeLabel}`}>{error === "" ? "Code" : error}</label>
           </div>
     </div>
   );

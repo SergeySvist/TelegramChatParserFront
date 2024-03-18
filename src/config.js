@@ -1,1 +1,1 @@
-export const baseURL = "http://localhost/first/TelegramChatsParser/";
+export const baseURL = "http://localhost:8080/";
