@@ -14,7 +14,7 @@ function LoginByPhone() {
     const phoneLogin = async ()=>{
         axios.post(baseURL, {formtype: "phonelogin", phone: phone})
         .then((response)=>{
-            navigate("/codelogin");
+            navigate(`/codelogin/${phone}`);
         })
         .catch((serverError) =>{
             if(serverError.response)
@@ -48,7 +48,7 @@ function LoginByPhone() {
             </label>
             <div style={{marginTop: "44px"}}>
                 {count>5 ? <button type="submit" className={styles.nextButton} onClick={()=>phoneLogin()}>Next</button>:""}
-                <Link to="/">
+                <Link to='/'>
                     <button type="button" className={styles.anotherLoginButton} style={{marginTop: "16px"}}>Log in by QR Code</button>
                 </Link>
             </div>

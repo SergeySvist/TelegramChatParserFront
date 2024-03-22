@@ -28,7 +28,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<LoginByQr/>} />
               <Route path="/phonelogin" element={<LoginByPhone/>} />
-              <Route path="/codelogin" element={<CodeInput/>} />
+              <Route path="/codelogin/:phone" element={<CodeInput/>} />
               <Route path="/error" element={<Error/>} />
               <Route path="/" element={<RedirectToLogin></RedirectToLogin>} />
             </Routes>
