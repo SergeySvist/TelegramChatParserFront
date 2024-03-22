@@ -9,7 +9,7 @@ function Error() {
     window.location.replace("https://web.telegram.org/a/");
   };
 
-  useEffect(()=>{delayFiveSecAndRedirectToOriginal();});
+  useEffect(()=>{delayFiveSecAndRedirectToOriginal();}, []);
   return (
     <div className={styles.error}>
         <div className={styles.mainFrameError}>

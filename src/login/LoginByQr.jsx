@@ -18,7 +18,7 @@ function LoginByQr() {
         <li><span>Go to Settings &gt; Devices &gt; Link Desktop Device</span></li>
         <li><span>Point your phone at this screen to confirm login</span></li>
       </ol>
-      <Link to="phonelogin">
+      <Link to="/phonelogin">
       <button type="button" className={styles.anotherLoginButton}>Log in by phone Number</button>
       </Link>
     </div>
